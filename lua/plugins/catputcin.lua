@@ -2,7 +2,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000, -- ini penting biar dia load duluan
+    priority = 10000, -- ini penting biar dia load duluan
   },
 
   {
