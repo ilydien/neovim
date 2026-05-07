@@ -3,7 +3,7 @@ return {
     "folke/snacks.nvim",
     opts = {
       explorer = {
-        enabled = true, -- 🔥 NYALAIN LAGI
+        enabled = true,
         replace_netrw = true,
       },
 
@@ -52,3 +52,4 @@ return {
     },
   },
 }
+
