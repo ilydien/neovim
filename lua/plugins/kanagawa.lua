@@ -2,7 +2,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
-    priority = 1000,
+    priority = 500,
     opts = {
       transparent = false, -- ganti true kalau mau background transparan
       commentStyle = { italic = true },
