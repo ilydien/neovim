@@ -16,7 +16,13 @@ return {
       lualine_a = { { "mode", separator = { left = "" } } },
       lualine_b = { { "branch", separator = { right = "" } }, { "diff", separator = { left = "" } } },
       lualine_c = { { draw_empty = false, color = { fg = "NONE", bg = "NONE", gui = "italic,bold" } } },
-      lualine_x = { { draw_empty = false, color = { fg = "NONE", bg = "NONE", gui = "italic,bold" } } },
+      lualine_x = {
+        {
+          "datetime",
+          format = "%H",
+          color = { fg = "NONE", bg = "NONE", gui = "italic,bold" },
+        },
+      },
       lualine_y = {
         { "diagnostics", separator = { right = "" } },
         { "lsp_status", separator = { right = "", left = "" } },
