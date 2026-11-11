@@ -10,6 +10,16 @@ return {
       dashboard = {
         enabled = true,
       },
+
+      lazygit = {
+        configure = true,
+        win = {
+          position = "float",
+          width = 0.9,
+          height = 0.9,
+          border = "rounded",
+        },
+      },
     },
   },
 }
