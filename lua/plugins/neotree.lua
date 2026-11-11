@@ -110,6 +110,24 @@ return {
     window = {
       width = 35,
       mappings = {
+        -- Tekan l di file: buka file lalu tutup tree.
+        -- Di folder tetap expand/collapse.
+        ["l"] = function(state)
+          local node = state.tree:get_node()
+          if node and node.type == "directory" then
+            state.commands.toggle_node(state)
+            return
+          end
+
+          local tree_win = vim.api.nvim_get_current_win()
+          state.commands.open(state)
+
+          vim.schedule(function()
+            if vim.api.nvim_win_is_valid(tree_win) and vim.api.nvim_get_current_win() ~= tree_win then
+              require("neo-tree.command").execute({ action = "close" })
+            end
+          end)
+        end,
         ["H"] = "toggle_hidden",
         ["I"] = toggle_ignored,
         ["-"] = "navigate_up",
