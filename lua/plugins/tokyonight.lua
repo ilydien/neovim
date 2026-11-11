@@ -4,8 +4,8 @@ return {
   priority = 1000,
   config = function()
     require("tokyonight").setup({
-      style = "night", -- Pilihan: "storm", "moon", "night", "day"
-      transparent = false,
+      style = "moon", -- Pilihan: "storm", "moon", "night", "day"
+      transparent = true, -- Ubah dari false jadi true
       styles = {
         comments = { italic = false }, -- Contoh: matikan italic di komentar
       },
