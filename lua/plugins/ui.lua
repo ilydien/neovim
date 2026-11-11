@@ -3,12 +3,11 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
       opts.window = opts.window or {}
-      opts.window.width = 25
+      -- opts.window.width = 25
 
       opts.default_component_configs = opts.default_component_configs or {}
-      opts.default_component_configs.indent = {
-        padding = 0,
-      }
+      opts.default_component_configs.indent =
+        vim.tbl_deep_extend("force", opts.default_component_configs.indent or {}, { padding = 0 })
     end,
   },
 

@@ -1,63 +1,24 @@
 return {
   "nvim-lualine/lualine.nvim",
-  version = false,
+  opts = function(_, opts)
+    -- Section default lualine (seperti tampilan standar)
+    opts.sections = {
+      lualine_a = { "mode" },
+      lualine_b = { "branch", "diff", "diagnostics" },
+      lualine_c = { "filename" },
+      lualine_x = { "encoding", "fileformat", "filetype" },
+      -- lualine_y = { "progress" },
+      lualine_z = { "location" },
+    }
 
-  opts = {
-    always_show_tabline = false,
+    -- Buang extension "neo-tree" supaya panel tree ikut menampilkan lualine penuh.
+    -- LazyVim default: { "neo-tree", "lazy", "fzf" }
+    opts.extensions = { "lazy" }
 
-    options = {
-      component_separators = "",
-      section_separators = { left = "", right = "" },
-    },
-
-    theme = {
-      normal = {
-        c = { bg = "NONE", fg = "NONE" },
-        z = { bg = "NONE", fg = "NONE" },
-      },
-      inactive = {
-        c = { bg = "NONE", fg = "NONE" },
-        z = { bg = "NONE", fg = "NONE" },
-      },
-    },
-
-    sections = {
-      lualine_a = {
-        {
-          "mode",
-          separator = { right = "" },
-        },
-      },
-
-      lualine_b = {
-        {
-          "branch",
-          separator = { left = "", right = "" },
-        },
-      },
-
-      lualine_c = {},
-
-      lualine_x = {
-        {
-          "datetime",
-          format = "%A, %B %d | %H:%M",
-          separator = { left = "", right = "" },
-        },
-      },
-
-      lualine_y = {
-        {
-          "lsp_status",
-          separator = { left = "", right = "" },
-        },
-      },
-
-      lualine_z = {
-        {
-          "location",
-        },
-      },
-    },
-  },
+    -- Separator rounded, bukan segitiga powerline
+    opts.options = vim.tbl_deep_extend("force", opts.options or {}, {
+      section_separators = { left = "", right = "" },
+      component_separators = { left = "", right = "" },
+    })
+  end,
 }
